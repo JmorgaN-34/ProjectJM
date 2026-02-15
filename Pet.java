@@ -1,41 +1,71 @@
 public class Pet {
     //Private data fields
 private String name;
+private String type;
+private int age;
+
 //public Constructor(s)
 public Pet()
 {
-    this.setName("");
+    this.type = "Animal";
+    this.name = "Pet Name";
+    this.age = 1;
+}
+public Pet(String type, String name, int age)
+{
+    setType(type);
+    setName(name);
+    setAge(age);
 }
 //public set or mutator method for every private data field (except if it is a secret)
 public void setName(String newName)
 {
     this.name = newName;
 }
+public void setType(String type)
+{
+    this.type = type;
+}
+public void setAge(int age)
+{
+    this.age = age;
+}
 //public get or accessor method for every private data field (except if it is a secret)
 public String getName()
 {
     return this.name;
 }
+public String getType()
+{
+    return this.type;
+}
+public int getAge()
+{
+    return this.age;
+}
+
+//speak method 
+public String speak()
+{
+    if (type.equalsIgnoreCase("dog")){
+        return "Woof";
+    }
+    else if (type.equalsIgnoreCase("cat")){
+        return "Meow";
+    }
+    else {
+        return "Noise";
+    }
+}
 //public toString method that prints out all of the object state (meaning the data in the object instance that you will later instantiate in the main() method)
 public String toString()
 {
     String output = "Pet information:\n";
-    output += "Name: " + this.getName();
-    return output;
+        output += "Type: " + this.type + "\n";
+        output += "Name: " + this.name + "\n";
+        output += "Sound: " + speak() + "\n";
+        output += "Age:  " + this.age + "\n";
+        return output;
 }
 
-   //main
-   public static void main(String[] args)
-   {
-        //sets pet1 name
-        Pet myPet1 = new Pet();
-        myPet1.setName("Marco");
-        //sets pet2 name
-        Pet myPet2 = new Pet();
-        myPet2.setName("Buster");
-        //prints the petname along with the pet information
-        System.out.println(myPet1);
-        System.out.println(myPet2);
-
-   }
 }
