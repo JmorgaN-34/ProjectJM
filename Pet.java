@@ -11,12 +11,13 @@ public Pet()
     this.name = "Pet Name";
     this.age = 1;
 }
-public Pet(String type, String name, int age)
+public Pet(String newName, String newType, int newAge)
 {
-    setType(type);
-    setName(name);
-    setAge(age);
+    setName(newName);
+    setType(newType);
+    setAge(newAge);
 }
+
 //public set or mutator method for every private data field (except if it is a secret)
 public void setName(String newName)
 {

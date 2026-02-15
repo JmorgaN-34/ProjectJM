@@ -11,7 +11,8 @@ public class Runner {
         System.out.println(pet1);
 
         // Second pet (custom constructor)
-        Pet pet2 = new Pet("Dog", "Buster", 11);
+        // Constructor order: (name, type, age)
+        Pet pet2 = new Pet("Buster", "Dog", 11);
         System.out.println(pet2);
 
         // Third pet (user input)
@@ -24,7 +25,9 @@ public class Runner {
         System.out.println("Enter animal age:");
         int age = input.nextInt();
 
-        Pet pet3 = new Pet(type, name, age);
+        // Correct order: (name, type, age)
+        Pet pet3 = new Pet(name, type, age);
+
         System.out.println();
         System.out.println(pet3);
 
