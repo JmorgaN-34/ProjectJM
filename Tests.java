@@ -2,22 +2,72 @@
 // 2-2-2026
 // Computer Science II Module 2 Assignment 2
 
+import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Tests {
-    public static void main(String[] args) {
-       //initialize the three test scores 
-        double testScore1 = 88.2;
-        double testScore2 = 78.9;
-        double testScore3 = 97.6;
-      //calculates the average of all three test scores
-        double average = (testScore1 + testScore2 + testScore3) / 3;
 
+    // variables to store the average, number of scores, and current score
+    private double ave;
+    private int count;
+    private int score;
+
+    // default constructor
+    public Tests() {
+        ave = 0.0;
+        count = 0;
+        score = 0;
+    }
+
+    // returns the average
+    public double getAve() {
+        return ave;
+    }
+
+    // returns how many scores were entered
+    public int getCount() {
+        return count;
+    }
+
+    // returns the most recent score
+    public int getScore() {
+        return score;
+    }
+
+    // sets the score
+    public void setScore(int newScore) {
+        score = newScore;
+    }
+
+    // asks the user for scores and calculates the average
+    public void getAverage() {
+
+        Scanner input = new Scanner(System.in);
+
+        double sum = 0;   // keeps track of total points
+        count = 0;        // keeps track of how many scores were entered
+
+        System.out.print("Enter a test score (-1 to quit): ");
+        score = input.nextInt();  // first score before loop
+
+        while (score != -1) {
+
+            sum += score;  // add score to total
+            count++;       // increase score count
+
+            System.out.print("Enter a test score (-1 to quit): ");
+            score = input.nextInt();
+        }
+
+        // this will be NaN if no scores were entered
+        ave = sum / count;
+    }
+
+    // formats and displays the result
+    public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
-       //prints results of individual test scores and the average of all three tests
-        System.out.println("Test score 1:  " + testScore1);
-        System.out.println("Test score 2:  " + testScore2);
-        System.out.println("Test score 3:  " + testScore3);
-        System.out.println("The average of 3 test scores is:  " + df.format(average));
+
+        return "The average of the " + count +
+               " scores entered is " + df.format(ave) + ".";
     }
 }
